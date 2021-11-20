@@ -1,0 +1,77 @@
+.navbar-size{
+    min-height: 100% !important;
+    height: 100vh !important;
+    background:linear-gradient(to right,#212529,#414141);
+}
+
+.navbar-menu{
+    width:15vw !important;
+    border-right:1px solid #666;
+
+}
+
+.nav-link{
+    font-size:1.2rem !important;
+    letter-spacing: 4px;
+    font-weight: 600;
+    color:#ededed;
+    border:1px solid #ededed !important;
+    margin:5px;
+}
+.nav-link:hover{
+    transition:0.5s;
+    color:#ededed;
+    box-shadow: 0 0  13px #ededed;
+}
+.tab-content{
+    margin:0;
+    padding:0;
+    width:100vw;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+
+/*Section Card CSS*/
+.title-text{
+    color:#ededed;
+    letter-spacing: 10px;
+    font-weight: 600;
+    border:1px solid #ededed;
+    box-shadow:0 0 5px #ededed;
+    padding:15px;
+    border-radius: 12px !important;
+    display:block;
+}
+.alert-success{
+    background-color:transparent;
+    color:#ededed;
+    border:none;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+.input-group-text{
+    background-color:transparent;
+    color:#ededed;
+    font-weight: 600;
+    font-size:0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.main-btn-custom{
+    background:transparent;
+    border:1px solid #fff;
+    color:#fff;
+    margin-bottom:15px;
+    height:10vh;
+    margin-top:2vh;
+    font-weight: 600;
+    font-size:2rem;
+    letter-spacing:-1px;
+}
+.main-btn-custom:hover{
+    border:1px solid #ededed;
+    box-shadow:0 0 5px #ededed;
+    color:#fff;
+    
+}

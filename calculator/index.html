@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/../imgs/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link href="./bs5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="./bs5/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./bs5/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <title>Devre Analizi</title>
+    <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./main.css"/>
+  </head>
+  <body>
+    <div class="App">
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content ">
+                    <div class="modal-header  text-center border-0" >
+                        <small class="text-muted">Sonuç</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                   <h1 id="result-text">Hatalı Giriş.</h1>
+                    </div>
+                </div>
+                </div>
+            </div>
+         
+        <div class="d-flex align-items-center navbar-size justify-content-center">
+            <div class="p-3 nav flex-column align-items-center justify-content-center nav-pills  bg-dark h-100 navbar-menu" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <button class="nav-link w-100 " id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-vir" aria-selected="false">V=I.R</button>
+              <button class="nav-link w-100 active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="true">P=I.V</button>
+              <button class="nav-link w-100 " id="v-pills-kay-tab" data-bs-toggle="pill" data-bs-target="#v-pills-kay" type="button" role="tab" aria-controls="v-pills-kay" aria-selected="false">Kirchhoff</button>
+            </div>
+            <div class=" tab-content p-5 " id="v-pills-tabContent">
+              <div class="tab-pane fade   " id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-vir-tab">
+                <div class="p-3 sectioncard-container d-flex flex-column justify-content-center align-items-center">
+                    <h4 class=" title-text">V=IxR Hesaplama</h4>
+                    <div class="alert alert-success" role="alert">
+                        Bilmediğiniz & bulmak istediğiniz değerleri boş geçiniz.
+                    </div>
+               <form class="m-5 p-1 ">
+                        <div class="input-group mb-3">    
+                            <label class="input-group-text" for="inputGroupSelect01">İŞLEM</label>
+                                <select class="form-select text-muted" id="inputGroupSelect01">
+                                    <option value="seciniz">seçiniz.</option>
+                                    <option value="1">V (Voltaj Bul) Bul</option>
+                                    <option value="2">I (Akım Bul) </option>
+                                    <option value="3">R (Direnç Bul)</option>
+                                </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">V<small>(v)</small></span>
+                            <input id="inputVoltage1" type="text" class="form-control" aria-label="Voltaj"/>
+                            <span class="input-group-text">I<small>(A)</small></span>
+                            <input id="inputCurrent1" type="text" class="form-control" aria-label="Akım"/>
+                            <span class="input-group-text">R<small>(Ω)</small></span>
+                            <input id="inputResistance1" type="text" class="form-control" aria-label="Direnç"/>
+                        </div>
+                        <div class="d-flex">
+                            <button id="calculateVir" class="btn btn-primary m-1 w-75 " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Hesapla <i class="fa fa-calculator" aria-hidden="true"></i>
+                            </button>
+                            <button  class="btn btn-clear btn-danger w-25 m-1">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </div>               
+                </form>            
+                </div>
+              </div>
+              <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <div class="p-3 sectioncard-container d-flex flex-column justify-content-center align-items-center">
+                    <h4 class=" title-text">P=IxVHesaplama</h4>
+                    <div class="alert alert-success" role="alert">
+                        Bilmediğiniz & bulmak istediğiniz değerleri boş geçiniz.
+                    </div>
+               <div class="m-5 p-1 ">
+                    <div class="input-group mb-3">    
+                        <label class="input-group-text" for="inputGroupSelect02">İŞLEM</label>
+                            <select class="form-select" id="inputGroupSelect02">
+                                <option value="seçiniz">seçiniz.</option>
+                                <option value="1">P (Güç) Bul</option>
+                                <option value="2">I (Akım Bul) </option>
+                                <option value="3">V (Voltaj)</option>
+                            </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">P<small>(w)</small></span>
+                        <input id="inputWatt" type="text" class="form-control" aria-label="Amount (to the nearest dollar)"/>
+                        <span class="input-group-text">I<small>(A)</small></span>
+                        <input id="inputCurrent2" type="text" class="form-control" aria-label="Amount (to the nearest dollar)"/>
+                        <span class="input-group-text">V<small>(v)</small></span>
+                        <input id="inputVoltage2" type="text" class="form-control" aria-label="Amount (to the nearest dollar)"/>
+                    </div>
+                    <div class="d-flex">
+                        <button id="btnCalculatePiv" class="btn btn-primary m-1 w-75 " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Hesapla <i class="fa fa-calculator" aria-hidden="true"></i>
+                        </button>
+                        <button  class="btn btn-clear btn-danger w-25 m-1">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                </div>
+               </div>
+               <div class="tab-pane fade" id="v-pills-kay" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                <div class="d-flex align-items-between flex-column justify-content-around">
+                    <button class="btn main-btn-custom" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Kirchhoff Akım Yasası(KAY)</button>
+                    <button class="btn main-btn-custom" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom2" aria-controls="offcanvasBottom">Kirchhoff Gerilim Yasası(KGY)</button>
+                    <button class="btn main-btn-custom" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom3" aria-controls="offcanvasBottom">Genel Formüller</button>
+            
+                    <div class="offcanvas offcanvas-bottom" tabIndex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasBottomLabel">Nedir?</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body small">
+                        Bu yasa aynı zamanda birinci yasa ve düğüm yasası olarak da adlandırılır. Bu yasaya göre herhangi bir düğüm noktasına gelen akımların toplamı, çıkan akımların toplamına eşittir.
+                        <br/>
+                        <img src="./imgs/y1.svg" class="img-fluid"/>
+                        </div>
+                    </div>
+                    
+                    <div class="offcanvas offcanvas-bottom" tabIndex="-1" id="offcanvasBottom2" aria-labelledby="offcanvasBottomLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasBottomLabel">Nedir?</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body small">
+                        Kapalı bir göz (çevre, loop, ilmek) içerisindeki toplam gerilim düşümü sıfırdır. Ya da kapalı bir çevrede harcanan gerilimlerin toplamı, sağlanan gerilimlerin toplamına eşittir.
+                        <br/>
+                        <img src="./imgs/y2.svg" class="img-fluid"/>
+                        </div>
+                    </div>
+                
+                     <div class="offcanvas offcanvas-bottom" tabIndex="-1" id="offcanvasBottom3" aria-labelledby="offcanvasBottomLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasBottomLabel">Genel Formüller</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body small">
+                        <ul class="list-group border-0">
+                            <li class="list-group-item border-0 bg-dark  text-white">P=I.V</li>
+                            <li class="list-group-item border-0 bg-primary text-white">V=I.R</li>
+                            <li class="list-group-item border-0 bg-dark text-white">P=V*V/R</li>
+                            <li class="list-group-item border-0 bg-primary text-white">P=I*I*R</li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+               </div>
+        
+            </div>
+          </div>    
+    </div>
+    <script  defer src="./main.js"></script>
+
+  </body>
+
+</html>
